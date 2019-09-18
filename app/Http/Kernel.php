@@ -37,6 +37,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             // Middleware for checking auth user
             \App\Http\Middleware\HookCheckAuth::class,
+            \App\Http\Middleware\HookCheckAccess::class,
         ],
 
         'api' => [
