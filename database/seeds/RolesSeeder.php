@@ -17,26 +17,27 @@ class RolesSeeder extends Seeder
             'slug' => 'admin',
             'permissions' => [
                 "HomeController" => ["POST","PUT","PATCH","GET","DELETE"],
-                "RoleController" => ["POST","PUT","PATCH","GET","DELETE"]
+                "RoleController" => ["POST","PUT","PATCH","GET","DELETE"],
+                "DashboardController" => ["POST","PUT","PATCH","GET","DELETE"]
             ]
         ]);
 
     	$author = Role::create([
             'name' => 'Author', 
             'slug' => 'author',
-            'permissions' => ["HomeController" => ["GET"]]
+            'permissions' => ["DashboardController" => ["GET"]]
         ]);
         
         $editor = Role::create([
             'name' => 'Editor', 
             'slug' => 'editor',
-            'permissions' => ["HomeController" => ["GET"]]
+            'permissions' => ["DashboardController" => ["GET"]]
         ]);
 
         $viewer = Role::create([
             'name' => 'Viewer', 
             'slug' => 'viewer',
-            'permissions' => ["HomeController" => ["GET"]]
+            'permissions' => ["DashboardController" => ["GET"]]
         ]);
     }
 }
