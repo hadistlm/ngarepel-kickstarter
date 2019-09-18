@@ -14,6 +14,7 @@ class HookCheckAuth
      */
     public function handle($request, Closure $next)
     {   
+
         // checking if user not login
         if(Auth::check() !== true):
             redirect('/');

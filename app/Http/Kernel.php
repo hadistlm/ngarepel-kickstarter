@@ -36,7 +36,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             // Middleware for checking auth user
-            \App\Http\Middleware\HookCheckAuth::class,
+            // \App\Http\Middleware\HookCheckAuth::class,
             \App\Http\Middleware\HookCheckAccess::class,
         ],
 

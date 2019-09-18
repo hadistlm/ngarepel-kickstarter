@@ -24,9 +24,8 @@ class HookCheckAccess
         $whitelist      = array(
             "LoginController", "ForgotPasswordController", "RegisterController", "ResetPasswordController", "VerificationController", "HomeController"
         );
-
         // proceed request ASAP when controller within whitelist
-        if (in_array($controllerName, $whitelist)) :
+        if (in_array($controllerName, $whitelist) OR empty($controllerName)) :
             return $next($request);
         endif;
 
@@ -40,6 +39,6 @@ class HookCheckAccess
             endif;
         endif;
 
-        redirect('/home');
+        header("Location: ". url('/home'));exit;
     }
 }

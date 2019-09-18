@@ -16,8 +16,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-// Routes for Setting
-Route::resource('setting', 'SettingController');
+// make sure user has login to access these URL
+Route::group(['middleware' => 'auth'], function() {
+	//Home URL
+	Route::get('/home', 'HomeController@index')->name('home');
+	// Route Logout
+    Route::get('logout', 'Auth\LoginController@logout');
+    // Route For Dashboard
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    // Routes for Setting
+	Route::resource('setting', 'SettingController');
+});
