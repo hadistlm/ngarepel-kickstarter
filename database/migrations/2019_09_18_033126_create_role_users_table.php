@@ -17,7 +17,8 @@ class CreateRoleUsersTable extends Migration
             $table->bigIncrements('pivot_role_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('role_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 
             $table->unique(['user_id','role_id']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
