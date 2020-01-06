@@ -39,6 +39,6 @@ class HookCheckAccess
             endif;
         endif;
 
-        header("Location: ". url('/home'));exit;
+        return redirect('/dashboard')->with('warning', 'You`re not authorized, which means you can`t access this method');exit;
     }
 }
