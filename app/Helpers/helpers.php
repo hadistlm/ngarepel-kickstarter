@@ -35,6 +35,21 @@ if (! function_exists('get_user_data')) {
   }
 }
 
+if (! function_exists('get_image')) {
+  function get_image($image_id = null)
+  {
+    if (empty($image_id)) return false;
+
+    $image = \App\Http\Controllers\FileController::fileDetail($image_id);
+
+    if (!empty($image)) :
+      return $image;
+    else:
+      return false;
+    endif;
+  }
+}
+
 if (! function_exists('toSlug')) {
   function toSlug($text){
     // replace non letter or digits by -
