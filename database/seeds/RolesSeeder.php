@@ -12,17 +12,18 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
-    	$admin	= Role::create([
+        $admin  = Role::create([
             'name' => 'Administrator', 
             'slug' => 'admin',
             'permissions' => [
-                "HomeController" => ["POST","PUT","PATCH","GET","DELETE"],
+                "SettingController" => ["POST","PUT","PATCH","GET","DELETE"],
+                "UserController" => ["POST","PUT","PATCH","GET","DELETE"],
                 "RoleController" => ["POST","PUT","PATCH","GET","DELETE"],
                 "DashboardController" => ["POST","PUT","PATCH","GET","DELETE"]
             ]
         ]);
 
-    	$author = Role::create([
+        $author = Role::create([
             'name' => 'Author', 
             'slug' => 'author',
             'permissions' => ["DashboardController" => ["GET"]]
