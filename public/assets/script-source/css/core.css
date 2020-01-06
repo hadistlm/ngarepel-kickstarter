@@ -1,0 +1,4 @@
+/* Custom CSS for Laravel backend */
+textarea {
+	resize: none;
+}
